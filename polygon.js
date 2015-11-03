@@ -20,9 +20,11 @@ Element.prototype.s = function(s) {
 	this.appendChild(x);
 }
 //shortcuts colors
-Element.prototype.setColor = function(s) {
-	this.style.background = s;
+Element.prototype.setColor = function(color) {
+	this.style.background = color;
 }
+
+ 
 /*
 	shortcut the appendChild() method
 */

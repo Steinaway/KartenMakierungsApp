@@ -8,15 +8,37 @@ var ColorPickerApp = (function() {
 
 		function updateColors() {
 			for(i = 0; i < 10;i++){
+				var color = new Color(random(),random(),random());
 				for(j = 0; j < 10;j++) {
-					var r = random();
-					var g = random();
-					var b = random();
 					var x = [i,j].positionGrid();
-					x.setColor('rgb('+r+','+g+','+b+')');
+					var coString = color.ColorToString();
+					color.colorTone(10);
+					x.setColor(coString);
+					
+					//var tones = colorTone(tone);
 				}
 			}
 		}
+
+		var Color = function(r,g,b) {
+			this.r = r;
+			this.g = g;
+			this.b = b;
+		}
+
+		Color.prototype.ColorToString = function() {
+			var colorString = 'rgb('+ this.r +','+ this.g +','+ this.b +')';
+			console.log(colorString);
+			return colorString;
+		}
+
+		Color.prototype.colorTone = function(factor) {
+			this.r = this.r + factor;
+			this.g = this.g + factor;
+			this.b = this.b + factor;
+		}
+		
+
 
 		generateButton.addEventListener("click", function() {
 			updateColors();
