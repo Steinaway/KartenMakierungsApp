@@ -2,7 +2,7 @@
 	display:block;
 	background: aqua;
 	height: 100px;
-	width: 10vh;
+	width: 500px;
 	font-size: 45px;
 	padding-left:40%;
 	padding-right: 40%;
@@ -14,5 +14,16 @@
 table {
     border:1px solid #CCC;
     border-collapse:collapse;
+}
+
+html {
+	margin: 0;
+}
+body {
+	margin:0;
+}
+
+p {
+	padding-left:50px;
 }
 
