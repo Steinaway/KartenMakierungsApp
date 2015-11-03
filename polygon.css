@@ -1,0 +1,18 @@
+#colorModule {
+	display:block;
+	background: aqua;
+	height: 100px;
+	width: 100%;
+	font-size: 45px;
+	padding-left:40%;
+	padding-right: 40%;
+	font-family: Georgia;
+	font-weight:900;
+	color:blue;
+	padding-top: 30px;
+}
+table {
+    border:1px solid #CCC;
+    border-collapse:collapse;
+}
+
