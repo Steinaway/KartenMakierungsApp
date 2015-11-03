@@ -36,8 +36,6 @@ var Polygon = (function() {
 			table.appendChild(rows[i]);
 			for(z=0;z<x;z++){
 				columns[z] = document.createElement("td");
-				columns[z].style.width = rows[i].style.width / x;
-				columns[z].style.height = table.style.height / y;
 				rows[i].appendChild(columns[z]);
 			}
 		}
