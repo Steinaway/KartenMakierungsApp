@@ -27,5 +27,9 @@ body {
 p {
 	padding-left:50px;
 }
-
+img {
+	display: inline-block;
+	margin-left: 600px;
+	margin-top:0;
+}
 
