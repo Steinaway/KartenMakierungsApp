@@ -1,54 +1,82 @@
 var ColorPickerApp = (function() {
-		var body = document.querySelector("#body");
-		body.appendChild(new grid(10,10));
-		var all = document.querySelectorAll('td');
+		var gridContent = document.querySelector(".grid");
 		var colorModule = document.querySelector('#colorModule');
 		var generateButton = document.querySelector("#generate");
+		var inputs = document.querySelectorAll("input");
+		var gridTable = document.querySelector("#grid");
+		var xInput = document.querySelector("#x");
+		var yInput = document.querySelector("#y");
+		var count = 0;
 
+		generateButton.addEventListener("click",onGenerate);
 
-		function updateColors() {
-			for(i = 0; i < 10;i++){
-				var color = new Color(random(),random(),random());
-				for(j = 0; j < 10;j++) {
-					var x = [i,j].positionGrid();
-					var coString = color.ColorToString();
+		for(var i = 0; i < inputs.length;i++) {
+			inputs[i].addEventListener("click",function() {
+				this.value = (null);
+			});
+		}
+		function addColorListeners() {
+			var all = document.querySelectorAll('td');
+			for(var i = 0; i < all.length; i++) {
+				all[i].addEventListener('click',function() {
+					var color = this.style.background;
+					colorModule.innerHTML = color;
+				});	
+			}
+		}
+		
+		
+		function updateColors(x,y) {
+			for(i = 0; i < y ;i++){
+				var color = new Color(Polygon.random(),Polygon.random(),Polygon.random());
+				for(j = 0;j < x ;j++) {
+					var elem = [i,j].positionGrid(gridTable);
+					elem.setColor(color.ColorString());
 					color.colorTone(10);
-					x.setColor(coString);
-					
-					//var tones = colorTone(tone);
 				}
 			}
+			addColorListeners();
 		}
 
 		var Color = function(r,g,b) {
 			this.r = r;
 			this.g = g;
 			this.b = b;
-		}
-
-		Color.prototype.ColorToString = function() {
-			var colorString = 'rgb('+ this.r +','+ this.g +','+ this.b +')';
-			console.log(colorString);
-			return colorString;
-		}
-
-		Color.prototype.colorTone = function(factor) {
-			this.r = this.r + factor;
-			this.g = this.g + factor;
-			this.b = this.b + factor;
+			this.ColorString = function() {
+				var colorString = ('rgb('+ this.r +','+ this.g +','+ this.b +')');
+				return colorString;
+			}
+			this.colorTone = function(factor) {
+				this.r = this.r + factor;
+				this.g = this.g + factor;
+				this.b = this.b + factor;
+			}
 		}
 		
 
 
-		generateButton.addEventListener("click", function() {
-			updateColors();
-		});
+		
 
-		for(var i = 0; i < all.length; i++) {
-			all[i].addEventListener('click',function() {
-				var color = this.style.background;
-				colorModule.innerHTML = color;
-			});	
+		function onGenerate() {
+			colorModule.innerHTML = ("<p>please wait...</p>");
+			count++;
+			if(count > 1) { 
+				gridContent.innerHTML = (null);
+			} 
+			if(xInput.value >= 100 || yInput.value >= 100) {
+					colorModule.innerHTML = ("too big");
+			} else {
+				gridContent.appendChild(  Polygon.grid(xInput.value,yInput.value));
+			}
+
+			var s = setTimeout(function(){
+				colorModule.innerHTML = (null);
+				updateColors(xInput.value,yInput.value);
+			},4000);
+
+			
+				
 		}
+		
 	
 })();	
