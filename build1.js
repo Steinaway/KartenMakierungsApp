@@ -32,7 +32,7 @@ var ColorPickerApp = (function() {
 				for(j = 0;j < x ;j++) {
 					var elem = [i,j].positionGrid(gridTable);
 					elem.setColor(color.ColorString());
-					color.colorTone(10);
+					color.colorTone(0.5);
 				}
 			}
 			addColorListeners();
@@ -65,16 +65,14 @@ var ColorPickerApp = (function() {
 			} 
 			if(xInput.value >= 100 || yInput.value >= 100) {
 					colorModule.innerHTML = ("too big");
-			} else {
-				gridContent.appendChild(  Polygon.grid(xInput.value,yInput.value));
+			} else 				
+gridContent.appendChild(  Polygon.grid(xInput.value,yInput.value));
 			}
 
-			var s = setTimeout(function(){
-				colorModule.innerHTML = (null);
+			var				
+colorModule.innerHTML = (null);
 				updateColors(xInput.value,yInput.value);
-			},4000);
-
-			
+						
 				
 		}
 		
