@@ -70,8 +70,8 @@ gridContent.appendChild(  Polygon.grid(xInput.value,yInput.value));
 			}
 
 			var				
-colorModule.innerHTML = (null);
-				updateColors(xInput.value,yInput.value);
+
+updateColors(xInput.value,yInput.value);
 						
 				
 		}
