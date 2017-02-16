@@ -69,7 +69,7 @@ var ColorPickerApp = (function() {
 gridContent.appendChild(  Polygon.grid(xInput.value,yInput.value));
 			}
 
-			var				
+							
 
 updateColors(xInput.value,yInput.value);
 						
